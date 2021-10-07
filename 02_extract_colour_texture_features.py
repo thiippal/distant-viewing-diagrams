@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import json
 from pathlib import Path
-from 00_hdf5writer import DataWriter
+from hdf5writer import DataWriter
 from skimage import feature
 from tqdm import tqdm
 
@@ -180,7 +180,8 @@ with tqdm(total=len(ai2d_json)) as pbar:
                         ai2d_rst_cat = ai2d_rst_categories[ann_file.stem]
 
                     except KeyError:
-                        ai2d_rst_cat = None
+
+                        ai2d_rst_cat = 'none'
 
                     # Append histograms and features to the queue lists
                     ycbcr_batch.append(hist_3d_y.flatten())
@@ -195,9 +196,13 @@ with tqdm(total=len(ai2d_json)) as pbar:
                 json_file.close()
 
                 # Write files to database
-                db.add(ycbcr=ycbcr_batch, hsv=hsv_batch, gray=gray_batch,
-                       lbp=lbp_batch, filename=fn_batch,
-                       ai2d_cat=ai2d_cat_batch, ai2d_rst_cat=ai2d_rst_cat_batch
+                db.add(ycbcr=ycbcr_batch,
+                       hsv=hsv_batch,
+                       gray=gray_batch,
+                       lbp=lbp_batch,
+                       filename=fn_batch,
+                       ai2d_cat=ai2d_cat_batch,
+                       ai2d_rst_cat=ai2d_rst_cat_batch
                        )
 
         # Update progress bar

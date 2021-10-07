@@ -16,7 +16,7 @@ Usage:
 	3. Run the script using the command below:
 	
 		python 01_extract_blobs_from_ai2d.py
-		
+		i
 	4. The blobs will be placed in the directory "png_blobs/"
 """
 
@@ -61,7 +61,6 @@ with tqdm(total=len(ai2d_json)) as pbar:
 
                 # Loop over blobs
                 for blob in blobs.keys():
-
                     # Get polygon and cast to NumPy array
                     polygon = np.array([blobs[blob]['polygon']])
 
@@ -89,7 +88,7 @@ with tqdm(total=len(ai2d_json)) as pbar:
 
                     # Crop the image
                     cropped_bbox = masked_img[bbox[1]: bbox[1] + bbox[3],
-                                              bbox[0]: bbox[0] + bbox[2]]
+                                   bbox[0]: bbox[0] + bbox[2]]
 
                     # Write cropped image to disk
                     cv2.imwrite(f"png_blobs/{filename}", cropped_bbox)
