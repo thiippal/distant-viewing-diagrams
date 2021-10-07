@@ -21,13 +21,11 @@ You should also [create a fresh virtual environment](https://docs.python.org/3/l
 
 `02_extract_colour_texture_features.py` extracts colour histograms and local binary patterns from the blobs. The results are stored into a HDF5 file named `blob_features_ycbcr_hsv_gray_lbp.h5`.
 
-`03_extract_umap_features.py` learns two-dimensional UMAP features for the 90-dimensional colour and texture features.
+`03_plot_2d_umap.py` learns two-dimensional UMAP features for the 90-dimensional colour and texture features and plots the two-dimensional UMAP features.
 
-`04_plot_2d_umap.py` plots the two-dimensional UMAP features.
+`04_plot_2d_umap+kde.py` plots kernel density estimations for UMAP features across selected diagram categories (e.g. cross-sections, cut-outs and illustrations).
 
-`05_plot_2d_umap+kde.py` plots a joint plot with UMAP features and kernel density estimations for selected diagram categories (e.g. cross-sections, cut-outs and illustrations).
-
-`06_plot_alluvial.R` plots an alluvial graph that maps the AI2D diagram categories to AI2D-RST diagram categories. You will need the `ggplot2` and `ggalluvial` libraries to run this script.
+`05_plot_alluvial.R` plots an alluvial graph that maps the AI2D diagram categories to AI2D-RST diagram categories. You will need the `ggplot2` and `ggalluvial` libraries to run this script.
 
 ## Contact
 
