@@ -16,7 +16,7 @@ Usage:
 	3. Run the script using the command below:
 	
 		python 01_extract_blobs_from_ai2d.py
-		i
+  
 	4. The blobs will be placed in the directory "png_blobs/"
 """
 
